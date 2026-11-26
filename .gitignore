@@ -1,0 +1,5 @@
+.env/
+__pycache__/
+*.pyc
+# downloadable; see README "Setup"
+models/pose_landmarker_lite.task
