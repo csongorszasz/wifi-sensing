@@ -1,5 +1,10 @@
 # Wi-Fi activity sensing (laptop ↔ router)
 
+![Live demo of live.py](docs/demo.gif)
+
+*Real recording, real time: sitting still, then walking around the room from 16:30:29, then
+sitting back down (motion ends 16:30:47). The only input is the laptop's Wi-Fi signal from the router.*
+
 Classifies the room as **empty**, **still** (someone present, not moving) or **moving**
 from the Wi-Fi signal between this laptop and the router. No extra hardware.
 
