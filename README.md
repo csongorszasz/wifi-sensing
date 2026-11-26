@@ -5,6 +5,8 @@
 *Real recording, real time: sitting still, walking around, sitting back down.*
 - **Left, the camera:** illustration only. A separate process recorded it so you can see what
   happened. `live.py` never opens the camera, and the camera plays no part in detection.
+  The webcam sits on the laptop, so the link being sensed runs from the camera to the router,
+  which is boxed in green at the bottom left.
 - **Right, `live.py`:** its only input is the laptop's Wi-Fi signal strength from the router, plotted
   at the bottom (both antennas). Red shading marks where the sensor reported MOVING.
 
