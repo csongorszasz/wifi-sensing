@@ -1,9 +1,12 @@
 # Wi-Fi activity sensing (laptop ↔ router)
 
-![Live demo of live.py](docs/demo.gif)
+![Live demo: webcam illustration next to live.py and the raw router signal](docs/demo.gif)
 
-*Real recording, real time: sitting still, then walking around the room from 16:30:29, then
-sitting back down (motion ends 16:30:47). The only input is the laptop's Wi-Fi signal from the router.*
+*Real recording, real time: sitting still, walking around, sitting back down.*
+- **Left, the camera:** illustration only. A separate process recorded it so you can see what
+  happened. `live.py` never opens the camera, and the camera plays no part in detection.
+- **Right, `live.py`:** its only input is the laptop's Wi-Fi signal strength from the router, plotted
+  at the bottom (both antennas). Red shading marks where the sensor reported MOVING.
 
 Classifies the room as **empty**, **still** (someone present, not moving) or **moving**
 from the Wi-Fi signal between this laptop and the router. No extra hardware.
@@ -32,6 +35,7 @@ Requires Linux with `iw` and `ping`. The pose model is only used by `collect.py`
      It averages ~2.5 s and is less reliable, because a still person off the path is invisible
      and the empty-room level drifts.
    - **last motion**: how long ago movement was last seen.
+   - `--log file.csv` records the raw antenna signals and the readings.
    - Predicts 20×/s. For steadier, slower readings: `live.py --confirm 6 --path-lag 10`.
      The previous slow model (3 s/10 s windows) is kept: `live.py --model models/activity-steady-3s10s.joblib`.
 

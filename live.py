@@ -78,7 +78,7 @@ def main():
     logf = open(args.log, "w", newline="") if args.log else None
     logw = csv.writer(logf) if logf else None
     if logw:
-        logw.writerow(["time", "p_moving", "p_in_path", "motion", "in_path"])
+        logw.writerow(["time", "sig0_dbm", "sig1_dbm", "p_moving", "p_in_path", "motion", "in_path"])
 
     print(f"Warming up for {long_s:g}s...")
     next_t = time.monotonic()
@@ -119,7 +119,7 @@ def main():
                 )
                 sys.stdout.flush()
                 if logw:
-                    logw.writerow([f"{time.time():.2f}", f"{p_move:.3f}", f"{p_path:.3f}",
+                    logw.writerow([f"{time.time():.3f}", row[1], row[2], f"{p_move:.3f}", f"{p_path:.3f}",
                                    int(moving), "" if in_path is None else int(in_path)])
             next_t += period
             delay = next_t - time.monotonic()
